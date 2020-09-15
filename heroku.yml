@@ -1,0 +1,6 @@
+build:
+    docker:
+        web: Dockerfile
+    config:
+        BACKEND_URL: https://wallmart-cn-backend.herokuapp.com/
+        NODE_ENV: production
