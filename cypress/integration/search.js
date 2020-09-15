@@ -1,3 +1,5 @@
+/*global cy */
+
 describe("Interacciones con el Buscador", function () {
 	beforeEach(function () {
         cy.visit("http://localhost:3000");
