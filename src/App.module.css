@@ -1,133 +1,128 @@
-
 .PreHeader {
-  background: #023758;
-  color: white;
-  padding: .5em;
-  font-size: 14px;
+	background: #023758;
+	color: white;
+	padding: 0.5em;
+	font-size: 14px;
 }
 .PreHeader a {
-  color: #2281d4;
+	color: #2281d4;
 }
 .Header {
-  background: #0171cd;
-  padding: .5em;
+	background: #0171cd;
+	padding: 0.5em;
 }
 .categorias {
-  background: #05578f;
-  color: white;
-  width: 100%;
-  font-weight: 200;
-  padding: .5em 1em;
-  border-radius: .25em;
-  margin-left: 10px;
+	background: #05578f;
+	color: white;
+	width: 100%;
+	font-weight: 200;
+	padding: 0.5em 1em;
+	border-radius: 0.25em;
+	margin-left: 10px;
 }
 .mr10 {
-  margin-right: 10px;
+	margin-right: 10px;
 }
 
 .searchBar {
-  background: white;
-  border-radius: .25em;
-  color: #c2c2c2;
-  display: flex;
-  align-items: center;
-  padding: 0 .5em;
-  width: 400px;
-  max-width: 50vw;
+	background: white;
+	border-radius: 0.25em;
+	color: #c2c2c2;
+	display: flex;
+	align-items: center;
+	padding: 0 0.5em;
+	width: 400px;
+	max-width: 50vw;
 }
 .searchBar input {
-  width: 100%;
-  padding: .5em;
-  border: 0;
+	width: 100%;
+	padding: 0.5em;
+	border: 0;
 }
 
 .carro {
-  background: #05578f;
-  color: #ffc120;
-  padding: .5em 1em;
-  border-radius: .25em;
-  display: flex;
-  align-items: center;
+	background: #05578f;
+	color: #ffc120;
+	padding: 0.5em 1em;
+	border-radius: 0.25em;
+	display: flex;
+	align-items: center;
 }
 .quantity {
-  background: #ffc120;
-  color: #0171cd;
-  border-radius: 50%;
-  font-size: 1.3em;
-  width: 1.5em;
-  text-align: center;
-  box-sizing: border-box;
+	background: #ffc120;
+	color: #0171cd;
+	border-radius: 50%;
+	font-size: 1.3em;
+	width: 1.5em;
+	text-align: center;
+	box-sizing: border-box;
 }
 
 .btnSupermarket {
-  background: #5eb445;
-  width: 100%;
-  padding: .5em 1em;
-  border-radius: .25em;
-  display: block;
-  color: white;
+	background: #5eb445;
+	width: 100%;
+	padding: 0.5em 1em;
+	border-radius: 0.25em;
+	display: block;
+	color: white;
 }
 
 .iconoSupermercado {
-  margin-right: 10px;
-  font-size: 1.5em;
+	margin-right: 10px;
+	font-size: 1.5em;
 }
 
 .content {
-  margin-top: 10px;
+	margin-top: 10px;
 }
 
 .searchTitle {
-  color: #49516b;
-  font-size: 1.5em;
-  font-weight: normal;
+	color: #49516b;
+	font-size: 1.5em;
+	font-weight: normal;
 }
 
 .results {
-  display: flex;
-  list-style: none;
-  flex-wrap: wrap;
-  justify-content: stretch;
-  padding: 0;
+	display: flex;
+	list-style: none;
+	flex-wrap: wrap;
+	justify-content: stretch;
+	padding: 0;
 }
 
 .linkFooter {
-  background: white;
-  font-weight: bold;
-  color: #2281d4;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: .5em;
-  border-radius: .5em;
-  box-sizing: border-box;
-  box-shadow: 4px 4px 5px rgba(134, 135, 138, 0.13);
+	background: white;
+	font-weight: bold;
+	color: #2281d4;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.5em;
+	border-radius: 0.5em;
+	box-sizing: border-box;
+	box-shadow: 4px 4px 5px rgba(134, 135, 138, 0.13);
 }
 
 .paginado {
-  background: white;
-  box-shadow: 4px 4px 5px rgba(134, 135, 138, 0.13);
-  display: flex;
-  border-radius: .5em;
-  justify-content: center;
-  box-sizing: border-box;
-  margin: 10px;
-}
-.paginado ul {
-  list-style: none;
-  display: flex;
-  font-size: 1.5em;
-  color: #dfdfdf;
-  padding: .5em;
-  margin: 0;
+	background: white;
+	box-shadow: 4px 4px 5px rgba(134, 135, 138, 0.13);
+	display: flex;
+	border-radius: 0.5em;
+	justify-content: center;
+	box-sizing: border-box;
+	margin: 10px;
+	list-style: none;
+	font-size: 1.5em;
+	color: #dfdfdf;
+	padding: 0.5em;
 }
 .paginado li {
-  margin: 0 10px;
+	margin: 0 10px;
 }
 .current {
-  color: white;
-  background: #0171cd;
-  border-radius: 50%;
-  width: 1.5em;
-  text-align: center;
+	color: white;
+	background: #0171cd;
+	border-radius: 50%;
+	width: 1.5em;
+	text-align: center;
 }
