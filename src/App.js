@@ -33,6 +33,8 @@ class App extends Component {
 		data: [],
 		showResults: false,
 	};
+	timer = null;
+
 	getData = () => {
 		axios
 			.get(urljoin(process.env.REACT_APP_BACKEND_URL, "search"), {
@@ -58,10 +60,16 @@ class App extends Component {
 		var { value } = event.target;
 		this.setState({ search: value }, () => {
 			if (value.length > 3 || !isNaN(value)) {
-				this.getData();
+				// Para evitar request mientras escribe
+				clearTimeout(this.timer);
+				this.timer = setTimeout(
+					this.getData,
+					300
+				);
 			}
 		});
 	};
+	// Gestor del paginado
 	handlePageClick = (data) => {
 		this.setState(
 			{
