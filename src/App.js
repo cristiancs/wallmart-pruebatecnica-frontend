@@ -36,10 +36,17 @@ class App extends Component {
 	timer = null;
 
 	getData = () => {
+		const {search} = this.state;
+		if (search.length === 0 ||( search.length <= 3 && isNaN(search)) ) {
+			this.setState({
+				showResults: false
+			})
+			return;
+		}
 		axios
 			.get(urljoin(process.env.REACT_APP_BACKEND_URL, "search"), {
 				params: {
-					term: this.state.search,
+					term: search,
 					page: this.state.page,
 				},
 			})
@@ -59,14 +66,9 @@ class App extends Component {
 	handleChange = (event) => {
 		var { value } = event.target;
 		this.setState({ search: value }, () => {
-			if (value.length > 3 || !isNaN(value)) {
-				// Para evitar request mientras escribe
-				clearTimeout(this.timer);
-				this.timer = setTimeout(
-					this.getData,
-					300
-				);
-			}
+			// Para evitar request mientras escribe
+			clearTimeout(this.timer);
+			this.timer = setTimeout(this.getData, 300);
 		});
 	};
 	// Gestor del paginado
@@ -75,9 +77,7 @@ class App extends Component {
 			{
 				page: data.selected,
 			},
-			() => {
-				this.getData();
-			}
+			this.getData
 		);
 	};
 	render() {
@@ -163,9 +163,8 @@ class App extends Component {
 						<Container>
 							{!this.state.showResults ? (
 								<p className={styles.buscar}>
-									{" "}
-									Ingresa un texto o código de producto para
-									buscar{" "}
+									Ingresa al menos 4 letras o un código de producto para
+									buscar
 								</p>
 							) : (
 								<>
