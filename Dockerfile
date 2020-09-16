@@ -5,19 +5,21 @@ FROM node:12.18.1-alpine as build
 WORKDIR /app
 
 ARG BACKEND_URL
+ARG NODE_ENV
 # add `/app/node_modules/.bin` to $PATH
 ENV PATH /app/node_modules/.bin:$PATH
 ENV BACKEND_URL ${BACKEND_URL}
+ENV NODE_ENV ${NODE_ENV}
 
 # install app dependencies
 COPY package.json ./
 COPY yarn.lock ./
-RUN yarn --silent
+RUN yarn install --prod --silent
 
 # add app
 COPY . ./
 # start app
-RUN REACT_APP_BACKEND_URL=$BACKEND_URL yarn build-heroku
+RUN yarn build-heroku
 
 # production environment
 FROM nginx:stable-alpine

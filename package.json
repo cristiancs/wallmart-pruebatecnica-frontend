@@ -6,9 +6,6 @@
 		"@fortawesome/fontawesome-svg-core": "^1.2.30",
 		"@fortawesome/free-solid-svg-icons": "^5.14.0",
 		"@fortawesome/react-fontawesome": "^0.1.11",
-		"@testing-library/jest-dom": "^4.2.4",
-		"@testing-library/react": "^9.3.2",
-		"@testing-library/user-event": "^7.1.2",
 		"axios": "^0.20.0",
 		"bootstrap": "^4.5.2",
 		"react": "^16.13.1",
@@ -21,6 +18,7 @@
 	"scripts": {
 		"start": "REACT_APP_BACKEND_URL=http://localhost:9200 react-scripts start",
 		"build": "react-scripts build",
+		"build-heroku": "REACT_APP_BACKEND_URL=https://wallmart-cn-backend.herokuapp.com react-scripts build",
 		"test": "cypress run --config video=false",
 		"eject": "react-scripts eject",
 		"cypress:open": "cypress open"
@@ -46,6 +44,9 @@
 		"cypress": "^5.1.0",
 		"cypress-react-unit-test": "^4.12.0",
 		"enzyme": "^3.11.0",
-		"enzyme-adapter-react-16": "^1.15.4"
+		"enzyme-adapter-react-16": "^1.15.4",
+		"@testing-library/jest-dom": "^4.2.4",
+		"@testing-library/react": "^9.3.2",
+		"@testing-library/user-event": "^7.1.2"
 	}
 }

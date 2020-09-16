@@ -3,7 +3,6 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import axios from "axios";
-
 import ReactPaginate from "react-paginate";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -36,11 +35,11 @@ class App extends Component {
 	timer = null;
 
 	getData = () => {
-		const {search} = this.state;
-		if (search.length === 0 ||( search.length <= 3 && isNaN(search)) ) {
+		const { search } = this.state;
+		if (search.length === 0 || (search.length <= 3 && isNaN(search))) {
 			this.setState({
-				showResults: false
-			})
+				showResults: false,
+			});
 			return;
 		}
 		axios
@@ -163,8 +162,8 @@ class App extends Component {
 						<Container>
 							{!this.state.showResults ? (
 								<p className={styles.buscar}>
-									Ingresa al menos 4 letras o un código de producto para
-									buscar
+									Ingresa al menos 4 letras o un código de
+									producto para buscar
 								</p>
 							) : (
 								<>
