@@ -51,7 +51,7 @@ class App extends Component {
 			})
 			.then((response) => {
 				this.setState({
-					data: response.data.resultado,
+					data: response.data.results,
 					pageCount: response.data.pages,
 					promoDiscount: response.data.promoDiscount,
 					showResults: true,
@@ -81,7 +81,7 @@ class App extends Component {
 	};
 	render() {
 		const searchResults = [];
-		const { promoDiscount, data } = this.state;
+		const {  data } = this.state;
 		data.forEach((element) => {
 			searchResults.push(
 				<li className="col-sm-4" key={element.id}>
@@ -90,7 +90,7 @@ class App extends Component {
 						description={element.description}
 						image={element.image}
 						price={element.price}
-						promoDiscount={promoDiscount ? 50 : 0}
+						finalPrice={element.finalPrice}
 					/>
 				</li>
 			);
@@ -98,7 +98,7 @@ class App extends Component {
 		return (
 			<>
 				<div>
-					<section className={styles.PreHeader}>
+					<section className={styles.beforeHeader}>
 						<Container>
 							Servicio al cliente de lider.cl: WhatsApp{" "}
 							<a
@@ -119,7 +119,7 @@ class App extends Component {
 							</a>
 							<Row className="align-items-center">
 								<Col xs="auto">
-									<div className={styles.categorias}>
+									<div className={styles.categories}>
 										<FontAwesomeIcon
 											icon={faBars}
 											className={styles.mr10}
@@ -138,10 +138,10 @@ class App extends Component {
 									</div>
 								</Col>
 								<Col xs="auto">
-									<div className={styles.carro}>
+									<div className={styles.cart}>
 										<FontAwesomeIcon
 											icon={faShoppingCart}
-											className={styles.iconoSupermercado}
+											className={styles.supermarketIcon}
 										/>
 										<div className={styles.quantity}>0</div>
 									</div>
@@ -206,7 +206,7 @@ class App extends Component {
 														this.handlePageClick
 													}
 													containerClassName={
-														styles.paginado
+														styles.pagination
 													}
 													containerId
 													subContainerClassName={

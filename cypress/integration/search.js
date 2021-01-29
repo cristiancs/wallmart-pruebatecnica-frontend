@@ -1,6 +1,6 @@
 /*global cy */
 
-describe("Interacciones con el Buscador", function () {
+describe("Interactions with search box", function () {
 	beforeEach(function () {
         cy.visit("http://localhost:3000");
         cy.server();
@@ -9,41 +9,41 @@ describe("Interacciones con el Buscador", function () {
 			url: "/search*",
 		}).as("apiCheck");
 	});
-	it("busca por id", function () {
+	it("Search by id and gets one result", function () {
 		
 		cy.get(`input[placeholder="¿Qué estás buscando?"]`)
 			.type("13");
 
 		cy.wait("@apiCheck").then((xhr) => {
             console.log(xhr);
-            expect(xhr.response.body.resultado).to.have.lengthOf(1);
+            expect(xhr.response.body.results).to.have.lengthOf(1);
 			cy.get("#results")
 				.should("contain", "breizhf")
 		});
     });
-    it("busca por palabra", function () {
+    it("Search by word and get multiple results", function () {
 		
 		cy.get(`input[placeholder="¿Qué estás buscando?"]`).type("qfwt");
 
 		cy.wait("@apiCheck").then((xhr) => {
 			console.log(xhr);
-			expect(xhr.response.body.resultado.length).to.be.greaterThan(1);
+			expect(xhr.response.body.results.length).to.be.greaterThan(1);
 			cy.get("#results").should("contain", "qfwt");
 		});
     });
-    it("aplica descuento en palindromos ", function () {
+    it("Search for a palindrome and the discount is applied ", function () {
 		
 		cy.get(`input[placeholder="¿Qué estás buscando?"]`).type("1221");
 
 		cy.wait("@apiCheck").then((xhr) => {
 			console.log(xhr);
-			expect(xhr.response.body.resultado).to.have.lengthOf(1);
+			expect(xhr.response.body.results).to.have.lengthOf(1);
 			cy.get("#results")
 				.should("contain", "994.681")
 				.and("contain", "497.340");
 		});
     });
-    it("Paginado id tiene solo 1 página", function () {
+    it("Search for an id and the pagination has only one page", function () {
 		
 		cy.get(`input[placeholder="¿Qué estás buscando?"]`).type("1221");
 
@@ -55,7 +55,7 @@ describe("Interacciones con el Buscador", function () {
 				.and("not.contain", "2");
 		});
     });
-    it("Paginado palabra tiene a lo menos 2 páginas", function () {
+    it("Search for a world and the pagination has at least 2 pages", function () {
 			
 			cy.get(`input[placeholder="¿Qué estás buscando?"]`).type("qfwt");
 
@@ -67,7 +67,7 @@ describe("Interacciones con el Buscador", function () {
 					.and("contain", "2");
 			});
 		});
-	it("Paginador Funciona", function () {
+	it("Pagination is clickeable and it redirects", function () {
 		cy.get(`input[placeholder="¿Qué estás buscando?"]`).type("qfwt");
 
 		cy.wait("@apiCheck").then((xhr) => {

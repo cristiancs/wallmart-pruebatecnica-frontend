@@ -1,78 +1,77 @@
 .ResultItem {
-    background: white;
-    padding: .5em;
-    height: calc(100% - 10px);
-    margin: 10px 5px;
-    box-sizing: border-box;
-    border-radius: .5em;
-    box-shadow: 4px 4px 5px rgba(134, 135, 138, 0.13);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+	background: white;
+	padding: 0.5em;
+	height: calc(100% - 10px);
+	margin: 10px 5px;
+	box-sizing: border-box;
+	border-radius: 0.5em;
+	box-shadow: 4px 4px 5px rgba(134, 135, 138, 0.13);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
-.detalles {
-    display: flex;
-    align-items: center;   
+.details {
+	display: flex;
+	align-items: center;
 }
-.detalles h3 {
-    font-size: 1.2em;
+.details h3 {
+	font-size: 1.2em;
 }
-.detalles span {
-    margin-left: .5rem;
-    color: #86878a;
-
+.details span {
+	margin-left: 0.5rem;
+	color: #86878a;
 }
 .currentPrice {
-    color: #545454;
-    font-weight: bold;
-    font-size: 1.7em;
-    display: flex;
-    align-items: center;
+	color: #545454;
+	font-weight: bold;
+	font-size: 1.7em;
+	display: flex;
+	align-items: center;
 }
-.descuento {
-    font-size: 1rem;
-    color: white;
-    background: #df1e23;
-    border-radius: 1em;
-    padding: 0 .5em;
-    margin-left: 10px;
+.discount {
+	font-size: 1rem;
+	color: white;
+	background: #df1e23;
+	border-radius: 1em;
+	padding: 0 0.5em;
+	margin-left: 10px;
 }
 .oldPrice {
-    text-decoration: line-through;
-    color: #86878a;
+	text-decoration: line-through;
+	color: #86878a;
 }
 
 .tags {
-    display: flex;
-    padding: 0;
-    list-style: none;
-    font-size: .8em;
+	display: flex;
+	padding: 0;
+	list-style: none;
+	font-size: 0.8em;
 }
-.despacho {
-    border: 2px solid #6daddc;
-    padding: .25em;
-    color: #6daddc;
-    border-radius: .5em;
+.shipment {
+	border: 2px solid #6daddc;
+	padding: 0.25em;
+	color: #6daddc;
+	border-radius: 0.5em;
 }
-.retiro {
-    border: 2px solid #fca56b;
-    padding: .25em;
-    color: #fca56b;
-    border-radius: .5em;
-    margin-left: 10px;
+.pickup {
+	border: 2px solid #fca56b;
+	padding: 0.25em;
+	color: #fca56b;
+	border-radius: 0.5em;
+	margin-left: 10px;
 }
 .purchase {
-    display: flex;
-    justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 .purchase button {
-    background: none;
-    border: 0;
-    margin: 1em 0;
-    box-shadow: 1px 1px 5px rgba(134, 135, 138, 0.5);
-    font-size: 1.2em;
-    padding: .5em 1em;
-    font-weight: bold;
-    border-radius: 1em;
-    color: #0b74cf;
+	background: none;
+	border: 0;
+	margin: 1em 0;
+	box-shadow: 1px 1px 5px rgba(134, 135, 138, 0.5);
+	font-size: 1.2em;
+	padding: 0.5em 1em;
+	font-weight: bold;
+	border-radius: 1em;
+	color: #0b74cf;
 }

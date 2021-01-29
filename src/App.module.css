@@ -1,17 +1,17 @@
-.PreHeader {
+.beforeHeader {
 	background: #023758;
 	color: white;
 	padding: 0.5em;
 	font-size: 14px;
 }
-.PreHeader a {
+.beforeHeader a {
 	color: #2281d4;
 }
 .Header {
 	background: #0171cd;
 	padding: 0.5em;
 }
-.categorias {
+.categories {
 	background: #05578f;
 	color: white;
 	width: 100%;
@@ -40,7 +40,7 @@
 	border: 0;
 }
 
-.carro {
+.cart {
 	background: #05578f;
 	color: #ffc120;
 	padding: 0.5em 1em;
@@ -67,7 +67,7 @@
 	color: white;
 }
 
-.iconoSupermercado {
+.supermarketIcon {
 	margin-right: 10px;
 	font-size: 1.5em;
 }
@@ -103,7 +103,7 @@
 	box-shadow: 4px 4px 5px rgba(134, 135, 138, 0.13);
 }
 
-.paginado {
+.pagination {
 	background: white;
 	box-shadow: 4px 4px 5px rgba(134, 135, 138, 0.13);
 	display: flex;
@@ -116,7 +116,7 @@
 	color: #dfdfdf;
 	padding: 0.5em;
 }
-.paginado li {
+.pagination li {
 	margin: 0 10px;
 }
 .current {

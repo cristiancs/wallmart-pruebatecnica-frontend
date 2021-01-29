@@ -12,7 +12,7 @@ import currencyFormater from "../helpers/currencyFormater";
 
 export default class ResultItem extends Component {
 	render() {
-		const { image, description, price, promoDiscount, brand } = this.props;
+		const { image, description, price, finalPrice, brand } = this.props;
 		return (
 			<article className={styles.ResultItem}>
 				<Image
@@ -20,21 +20,21 @@ export default class ResultItem extends Component {
 					src={image.startsWith("http") ? image : "https://" + image}
 					alt={`${brand} - ${description} `}
 				/>
-				<div className={styles.detalles}>
+				<div className={styles.details}>
 					<h3>{brand}</h3> <span>{description}</span>
 				</div>
 				<div className={styles.precio}>
-					{promoDiscount !== 0 ? (
+					{price !== finalPrice ? (
 						<>
 							<div className={styles.currentPrice}>
 								<strong>
 									${" "}
 									{currencyFormater(
-										price * ((100 - promoDiscount) / 100)
+										finalPrice
 									)}
 								</strong>{" "}
-								<div className={styles.descuento}>
-									{promoDiscount} %
+								<div className={styles.discount}>
+									50 %
 								</div>
 							</div>
 							<div className={styles.oldPrice}>
@@ -48,10 +48,10 @@ export default class ResultItem extends Component {
 					)}
 				</div>
 				<ul className={styles.tags}>
-					<li className={styles.despacho}>
+					<li className={styles.shipment}>
 						<FontAwesomeIcon icon={faTruck} /> despacho
 					</li>
-					<li className={styles.retiro}>
+					<li className={styles.pickup}>
 						<FontAwesomeIcon icon={faWarehouse} /> retiro
 					</li>
 				</ul>
@@ -68,5 +68,5 @@ ResultItem.propTypes = {
 	image: PropTypes.string.isRequired,
 	brand: PropTypes.string.isRequired,
 	price: PropTypes.number.isRequired,
-	promoDiscount: PropTypes.number.isRequired,
+	finalPrice: PropTypes.number.isRequired,
 };
