@@ -1,4 +1,4 @@
-import currencyFormater from "../../../src/helpers/currencyFormater.js";
+import currencyFormater from "./currencyFormater.js";
 describe("Currency Formating", () => {
 	it("Converts 8322500 to  8.322.500", () => {
 		const price = currencyFormater(8322500);

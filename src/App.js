@@ -28,7 +28,6 @@ class App extends Component {
 		search: "",
 		page: 0,
 		pageCount: 0,
-		promoDiscount: false,
 		data: [],
 		showResults: false,
 	};
@@ -53,7 +52,6 @@ class App extends Component {
 				this.setState({
 					data: response.data.results,
 					pageCount: response.data.pages,
-					promoDiscount: response.data.promoDiscount,
 					showResults: true,
 				});
 			})

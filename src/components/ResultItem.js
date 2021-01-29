@@ -14,7 +14,7 @@ export default class ResultItem extends Component {
 	render() {
 		const { image, description, price, finalPrice, brand } = this.props;
 		return (
-			<article className={styles.ResultItem}>
+			<article data-testid="result-item" className={styles.ResultItem}>
 				<Image
 					fluid
 					src={image.startsWith("http") ? image : "https://" + image}
@@ -26,7 +26,7 @@ export default class ResultItem extends Component {
 				<div className={styles.precio}>
 					{price !== finalPrice ? (
 						<>
-							<div className={styles.currentPrice}>
+							<div data-testid="discounted-price" className={styles.currentPrice}>
 								<strong>
 									${" "}
 									{currencyFormater(
@@ -42,7 +42,7 @@ export default class ResultItem extends Component {
 							</div>
 						</>
 					) : (
-						<div className={styles.currentPrice}>
+						<div data-testid="full-price"  className={styles.currentPrice}>
 							<strong>$ {currencyFormater(price)}</strong>
 						</div>
 					)}

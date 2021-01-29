@@ -1,4 +1,7 @@
 {
 	"viewportWidth": 1920,
-	"viewportHeight": 1080
+	"viewportHeight": 1080,
+	"experimentalComponentTesting": true,
+    "componentFolder": "src",
+    "specFiles": "*spec.*"
 }
