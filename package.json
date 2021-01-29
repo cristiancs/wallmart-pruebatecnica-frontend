@@ -18,7 +18,7 @@
 	"scripts": {
 		"start": "REACT_APP_BACKEND_URL=http://localhost:9200 react-scripts start",
 		"build": "react-scripts build",
-		"build-heroku": "REACT_APP_BACKEND_URL=https://wallmart-cn-backend.herokuapp.com react-scripts build",
+		"build-heroku": "REACT_APP_BACKEND_URL=https://walmart-cn-backend.herokuapp.com react-scripts build",
 		"test": "cypress run --config video=false",
 		"eject": "react-scripts eject",
 		"cypress:open": "cypress open"
