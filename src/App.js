@@ -16,36 +16,45 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+import urljoin from "url-join";
 import styles from "./App.module.css";
 import "./global.css";
 import logo from "./logo.svg";
-import urljoin from "url-join";
 
 import ResultItem from "./components/ResultItem";
 
 class App extends Component {
-	state = {
-		search: "",
-		page: 0,
-		pageCount: 0,
-		data: [],
-		showResults: false,
-	};
 	timer = null;
 
+	constructor(props) {
+		super(props);
+		this.state = {
+			search: "",
+			page: 0,
+			pageCount: 0,
+			data: [],
+			showResults: false,
+		};
+	}
+
 	getData = () => {
-		const { search } = this.state;
-		if (search.length === 0 || (search.length <= 3 && isNaN(search))) {
+		const { search, page } = this.state;
+		if (
+			search.length === 0 ||
+			(search.length <= 3 && Number.isNaN(Number(search)))
+		) {
 			this.setState({
 				showResults: false,
 			});
 			return;
 		}
+
+		console.log("REACT_APP_BACKEND_URL", process.env.REACT_APP_BACKEND_URL);
 		axios
 			.get(urljoin(process.env.REACT_APP_BACKEND_URL, "search"), {
 				params: {
 					term: search,
-					page: this.state.page,
+					page,
 				},
 			})
 			.then((response) => {
@@ -60,14 +69,16 @@ class App extends Component {
 				alert("Hubo un problema al procesar la solicitud");
 			});
 	};
+
 	handleChange = (event) => {
-		var { value } = event.target;
+		const { value } = event.target;
 		this.setState({ search: value }, () => {
 			// Para evitar request mientras escribe
 			clearTimeout(this.timer);
 			this.timer = setTimeout(this.getData, 300);
 		});
 	};
+
 	// Gestor del paginado
 	handlePageClick = (data) => {
 		this.setState(
@@ -77,9 +88,10 @@ class App extends Component {
 			this.getData
 		);
 	};
+
 	render() {
 		const searchResults = [];
-		const {  data } = this.state;
+		const { data, search, showResults, pageCount } = this.state;
 		data.forEach((element) => {
 			searchResults.push(
 				<li className="col-sm-4" key={element.id}>
@@ -131,7 +143,7 @@ class App extends Component {
 										<input
 											placeholder="¿Qué estás buscando?"
 											onChange={this.handleChange}
-											value={this.state.search}
+											value={search}
 										/>
 									</div>
 								</Col>
@@ -158,7 +170,7 @@ class App extends Component {
 					</header>
 					<section className={styles.content}>
 						<Container>
-							{!this.state.showResults ? (
+							{!showResults ? (
 								<p className={styles.buscar}>
 									Ingresa al menos 4 letras o un código de
 									producto para buscar
@@ -167,9 +179,9 @@ class App extends Component {
 								<>
 									<h2 className={styles.searchTitle}>
 										Resultados para{" "}
-										<strong>{this.state.search}:</strong>
+										<strong>{search}:</strong>
 									</h2>
-									{this.state.data.length === 0 ? (
+									{data.length === 0 ? (
 										<p className={styles.buscar}>
 											Sin resultados para la búsqueda
 										</p>
@@ -193,11 +205,9 @@ class App extends Component {
 															icon={faAngleRight}
 														/>
 													}
-													breakLabel={"..."}
-													breakClassName={"break-me"}
-													pageCount={
-														this.state.pageCount
-													}
+													breakLabel="..."
+													breakClassName="break-me"
+													pageCount={pageCount}
 													marginPagesDisplayed={2}
 													pageRangeDisplayed={5}
 													onPageChange={
@@ -207,9 +217,7 @@ class App extends Component {
 														styles.pagination
 													}
 													containerId
-													subContainerClassName={
-														"pages pagination"
-													}
+													subContainerClassName="pages pagination"
 													activeClassName={
 														styles.current
 													}

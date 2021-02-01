@@ -1,7 +1,7 @@
-/*global cy */
+/* global cy */
 
-describe("Interactions with search box", function () {
-	beforeEach(function () {
+describe("Interactions with search box", () => {
+	beforeEach(() => {
         cy.visit("http://localhost:3000");
         cy.server();
 		cy.route({
@@ -9,7 +9,7 @@ describe("Interactions with search box", function () {
 			url: "/search*",
 		}).as("apiCheck");
 	});
-	it("Search by id and gets one result", function () {
+	it("Search by id and gets one result", () => {
 		
 		cy.get(`input[placeholder="¿Qué estás buscando?"]`)
 			.type("13");
@@ -21,7 +21,7 @@ describe("Interactions with search box", function () {
 				.should("contain", "breizhf")
 		});
     });
-    it("Search by word and get multiple results", function () {
+    it("Search by word and get multiple results", () => {
 		
 		cy.get(`input[placeholder="¿Qué estás buscando?"]`).type("qfwt");
 
@@ -31,7 +31,7 @@ describe("Interactions with search box", function () {
 			cy.get("#results").should("contain", "qfwt");
 		});
     });
-    it("Search for a palindrome and the discount is applied ", function () {
+    it("Search for a palindrome and the discount is applied ", () => {
 		
 		cy.get(`input[placeholder="¿Qué estás buscando?"]`).type("1221");
 
@@ -43,7 +43,7 @@ describe("Interactions with search box", function () {
 				.and("contain", "497.340");
 		});
     });
-    it("Search for an id and the pagination has only one page", function () {
+    it("Search for an id and the pagination has only one page", () => {
 		
 		cy.get(`input[placeholder="¿Qué estás buscando?"]`).type("1221");
 
@@ -55,7 +55,7 @@ describe("Interactions with search box", function () {
 				.and("not.contain", "2");
 		});
     });
-    it("Search for a world and the pagination has at least 2 pages", function () {
+    it("Search for a world and the pagination has at least 2 pages", () => {
 			
 			cy.get(`input[placeholder="¿Qué estás buscando?"]`).type("qfwt");
 
@@ -67,7 +67,7 @@ describe("Interactions with search box", function () {
 					.and("contain", "2");
 			});
 		});
-	it("Pagination is clickeable and it redirects", function () {
+	it("Pagination is clickeable and it redirects", () => {
 		cy.get(`input[placeholder="¿Qué estás buscando?"]`).type("qfwt");
 
 		cy.wait("@apiCheck").then((xhr) => {

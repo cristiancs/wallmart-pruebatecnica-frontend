@@ -8,23 +8,21 @@
 		"@fortawesome/react-fontawesome": "^0.1.11",
 		"axios": "^0.21.1",
 		"bootstrap": "^4.5.2",
-		"react": "^16.13.1",
+		"prop-types": "^15.7.2",
+		"react": "^17.0.1",
 		"react-bootstrap": "^1.3.0",
-		"react-dom": "^16.13.1",
-		"react-paginate": "^6.5.0",
-		"react-scripts": "3.4.3",
+		"react-dom": "^17.0.1",
+		"react-paginate": "^7.0.0",
+		"react-scripts": "^4.0.1",
 		"url-join": "^4.0.1"
 	},
 	"scripts": {
 		"start": "REACT_APP_BACKEND_URL=http://localhost:9200 react-scripts start",
 		"build": "react-scripts build",
 		"build-heroku": "REACT_APP_BACKEND_URL=https://walmart-cn-backend.herokuapp.com react-scripts build",
-		"test": "cypress run --config video=false",
+		"test": "REACT_APP_BACKEND_URL=http://127.0.0.1 cypress run --config video=false",
 		"eject": "react-scripts eject",
-		"cypress:open": "cypress open"
-	},
-	"eslintConfig": {
-		"extends": "react-app"
+		"cypress:open": "REACT_APP_BACKEND_URL=http://127.0.0.1 cypress open"
 	},
 	"browserslist": {
 		"production": [
@@ -39,7 +37,14 @@
 		]
 	},
 	"devDependencies": {
+		"@cypress/react": "^4.16.4",
 		"cypress": "6.3.0",
-		"@cypress/react": "^4.16.4"
+		"eslint": "^7.19.0",
+		"eslint-config-airbnb": "^18.2.1",
+		"eslint-config-prettier": "^7.2.0",
+		"eslint-plugin-import": "^2.22.1",
+		"eslint-plugin-jsx-a11y": "^6.4.1",
+		"eslint-plugin-prettier": "^3.3.1",
+		"prettier": "^2.2.1"
 	}
 }
