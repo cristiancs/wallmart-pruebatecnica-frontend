@@ -42,4 +42,16 @@ describe("ResultItem", () => {
 		cy.get('[data-testid="discounted-price"]').should("not.exist");
 		cy.get('[data-testid="full-price"]').should("be.visible");
 	});
+	it("It formats the currency", () => {
+		mount(
+			<ResultItem
+				brand="Test Brand"
+				description="Test Description"
+				image="http://placehold.it/200x200"
+				price={1000}
+				finalPrice={1000}
+			/>
+		);
+		cy.get('[data-testid="full-price"]').contains("1.000");
+	});
 });

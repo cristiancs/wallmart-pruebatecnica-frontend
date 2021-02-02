@@ -1,10 +1,10 @@
-export default function (n) {
+export default (n) => {
 	let precio = n
 		.toFixed(1)
 		.replace(".", ",")
 		.replace(/\d{3}(?=(\d{3})*,)/g,  (s) =>  `.${  s}`);
-	// eslint-disable-next-line prefer-destructuring
-	precio = precio.split(",")[0];
+	precio = precio.split(",");
+	[precio] = precio;
 	if (precio.startsWith(".")) {
 		precio = precio.replace(".", "");
 	}
